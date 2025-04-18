@@ -1,0 +1,1 @@
+{"contractor": "", "sum": "105.00", "currency": "RUB"}

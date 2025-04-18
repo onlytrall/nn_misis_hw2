@@ -1,0 +1,1 @@
+{"contractor": "Mike Cashier", "sum": "105.05", "currency": "rub"}

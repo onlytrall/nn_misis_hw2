@@ -1,0 +1,1 @@
+b'{"contractor": "Mike", "sum": 105, "currency": "ruble p\\"k"}'
