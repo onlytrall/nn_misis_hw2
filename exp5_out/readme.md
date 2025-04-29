@@ -47,7 +47,7 @@ class Config:
   num_beams = 1
   model_name = 'Qwen/Qwen2.5-0.5B-Instruct'
 
-# hedgehog_2.txt ~250 tokens
+# hedgehog_2.txt
 class Config:
   system_prompt = _STORY_TELLER_SYSTEM_PROMPT
   prompt = _STORY_TELLER_USER_PROMPT
