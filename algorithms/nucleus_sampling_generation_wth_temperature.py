@@ -49,20 +49,14 @@ def sampling_generate(model, tokenizer, system_prompt, prompt, max_tokens=1000, 
     if probs_vals[0] > top_p:
       next_token = prob_indices[0]
     else:
-      pref_sum = 0
       prob_coef = torch.zeros(len(probs_vals)).to(model.device)
-      for i in range(len(probs_vals)):
-        p = probs_vals[i]
-        ind = prob_indices[i]
-        if p + pref_sum <= top_p:
-          pref_sum += p
-          prob_coef[ind] = 1
-        else:
-          break
+      pref_sum = torch.cumsum(probs_vals)
+      prob_coef = pref_sum <= top_p
 
-      probs_init = probs_init * prob_coef
-      probs = probs_init / pref_sum
+      probs_vals = probs_vals * prob_coef
+      probs = probs_vals / pref_sum
       next_token = torch.multinomial(probs, 1, replacement=True).squeeze()
+      next_token = prob_indices[next_token]
 
     
     if next_token == eos_token:
