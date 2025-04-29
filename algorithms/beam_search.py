@@ -60,7 +60,7 @@ def beam_search(model, tokenizer, system_prompt, prompt, max_tokens=1000, num_be
   unfinished = []
   finished = []
 
-  first_inference = utils.get_next_token_logits(model=model, tokenizer=tokenizer, prompt=text)
+  first_inference = torch.nn.functional.log_softmax(utils.get_next_token_logits(model=model, tokenizer=tokenizer, prompt=text))
   sorted_log, sorted_ind = torch.sort(first_inference, descending=True)
 
   for i in range(num_beams):
