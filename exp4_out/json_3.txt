@@ -1,2 +1,1 @@
-b'{"contractor": "Mike", "sum": 105, "currency": "rubles"}'
-
+{"contractor": "Mike", "sum": 105, "currency": "rubles"}
