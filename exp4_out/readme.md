@@ -6,7 +6,7 @@ class Config:
   top_p = 0.9
   model_name = 'Qwen/Qwen2.5-0.5B-Instruct'
 
-# hedgehod_2.txt ~300-400 tokens
+# hedgehod_2.txt ~270 tokens
 class Config:
   system_prompt = _STORY_TELLER_SYSTEM_PROMPT
   prompt = _STORY_TELLER_USER_PROMPT
